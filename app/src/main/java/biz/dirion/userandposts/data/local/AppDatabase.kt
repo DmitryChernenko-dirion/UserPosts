@@ -21,7 +21,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao
 
     companion object {
-        const val DB_VERSION = 2
-        const val DB_NAME = "${BuildConfig.APPLICATION_ID}:localDataBase4"
+        const val DB_VERSION = 1
+        const val DB_NAME = "${BuildConfig.APPLICATION_ID}:localDataBase"
     }
 }

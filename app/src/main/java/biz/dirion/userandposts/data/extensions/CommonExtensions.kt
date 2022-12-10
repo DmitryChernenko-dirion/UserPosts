@@ -6,7 +6,7 @@ import biz.dirion.userandposts.data.local.entities.PostEntity
 import biz.dirion.userandposts.data.local.entities.UserEntity
 
 fun PostResponse.toEntity() = PostEntity(
-    id = id,
+    postId = id,
     userId = userId,
     title = title,
     body = body,

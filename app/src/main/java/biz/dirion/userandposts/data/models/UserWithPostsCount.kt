@@ -1,10 +1,10 @@
-package biz.dirion.userandposts.data.local.entities
+package biz.dirion.userandposts.data.models
 
-data class UserWithPostsEntity(
+data class UserWithPostsCount(
     val id: Long,
     val albumId: Long,
     val name: String,
     val url: String,
     val thumbnailUrl: String,
-    val postIds: List<Long>
+    val postsCount: Long,
 )
