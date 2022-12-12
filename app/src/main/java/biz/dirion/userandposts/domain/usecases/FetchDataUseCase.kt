@@ -12,7 +12,7 @@ class FetchDataUseCase @Inject constructor(
     private val postsRepository: PostRepository,
 ) {
 
-    suspend operator fun invoke() = withContext(Dispatchers.IO) {
+    suspend fun execute() = withContext(Dispatchers.IO) {
         kotlin
             .runCatching {
                 usersRepository.fetch()

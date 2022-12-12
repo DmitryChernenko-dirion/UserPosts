@@ -24,7 +24,7 @@ class UsersViewModel @Inject constructor(
     }
 
     private fun fetchUsers() = viewModelScope.launch {
-        fetchDataUseCase.invoke()
+        fetchDataUseCase.execute()
             .onSuccess { getUsers() }
             .onFailure { }
     }

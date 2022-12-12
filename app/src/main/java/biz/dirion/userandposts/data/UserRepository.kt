@@ -1,5 +1,6 @@
 package biz.dirion.userandposts.data
 
+import biz.dirion.userandposts.data.extensions.toDomain
 import biz.dirion.userandposts.data.extensions.toEntity
 import biz.dirion.userandposts.data.local.daos.UserDao
 import biz.dirion.userandposts.domain.models.User
@@ -18,12 +19,8 @@ class UserRepository @Inject constructor(
     }
 
     fun getAllUserWithPostsCount(): Flow<List<User>> = userDao.getAllUserWithPostsCount().map { list ->
-        list.map { entity ->
-            entity.run { User(id, name, url, thumbnailUrl, postsCount) }
-        }
+        list.map { it.toDomain() }
     }
 
-    fun getUser(userId: Long): Flow<User> = userDao.getUser(userId).map { entity ->
-        entity.run { User(id, name, url, thumbnailUrl, postsCount) }
-    }
+    fun getUser(userId: Long): Flow<User> = userDao.getUser(userId).map { it.toDomain() }
 }
